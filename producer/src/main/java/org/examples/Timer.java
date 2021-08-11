@@ -54,9 +54,7 @@ public class Timer {
   public void send() {
     try (JMSContext context = factory.createContext()) {
       String text = "Message " + counter.incrementAndGet();
-      BytesMessage message = context.createBytesMessage();
-      message.writeUTF(text);
-      JMSProducer send = context.createProducer().send(queue, message);
+      context.createProducer().send(queue, text);
       System.out.println("Message '" + text + "' sent");
     } catch (Throwable ex) {
       ex.printStackTrace(System.out);

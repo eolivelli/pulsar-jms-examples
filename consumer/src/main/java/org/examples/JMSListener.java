@@ -18,6 +18,7 @@ package org.examples;
 import java.nio.charset.StandardCharsets;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
+import javax.jms.BytesMessage;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 
@@ -31,8 +32,13 @@ public class JMSListener implements MessageListener {
   @Override
   public void onMessage(final Message message) {
     try {
-      byte[] contents = message.getBody(byte[].class);
-      System.out.println("Received message '" + new String(contents, StandardCharsets.UTF_8) + "' from destination " + message.getJMSDestination());
+      if (message instanceof BytesMessage) {
+        byte[] contents = message.getBody(byte[].class);
+        System.out.println("Received (binary) message '" + new String(contents, StandardCharsets.UTF_8) + "' from destination " + message.getJMSDestination());
+      } else {
+        String contents = message.getBody(String.class);
+        System.out.println("Received (string) message '" + contents + "' from destination " + message.getJMSDestination());
+      }
     } catch (final Throwable e) {
       e.printStackTrace(System.out);
     }
