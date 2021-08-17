@@ -52,7 +52,14 @@ Steps:
    cp pulsarra.rar tomee2/rars
    ```
 7. Edit tomee1/conf/server.xml and change the 8080 port to 8081
+   ```
+   sed -i.bak 's/8080/8081/' tomee1/conf/server.xml
+   ```
 8. Edit tomee2/conf/server.xml and change the 8080 port to 8082 and the 8005 port to 8006
+   ```
+   sed -i.bak 's/8080/8082/' tomee2/conf/server.xml
+   sed -i.bak 's/8005/8006/' tomee2/conf/server.xml
+   ```
 9. Copy consumer/target/consumer*war to tomee1/webapps
    ```
    cp consumer/target/consumer*war tomee1/webapps
