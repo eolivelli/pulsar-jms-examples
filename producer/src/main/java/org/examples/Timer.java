@@ -38,7 +38,7 @@ public class Timer {
   @Resource(name = "pulsar-javax.jms.ConnectionFactory")
   ConnectionFactory factory;
 
-  @Resource(name = "pulsar-javax.jms.Queue")
+  @Resource(lookup = "openejb:Resource/FooQueue")
   private Queue queue;
 
   private AtomicInteger counter = new AtomicInteger();

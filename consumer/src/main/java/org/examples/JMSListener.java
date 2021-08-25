@@ -24,7 +24,7 @@ import javax.jms.MessageListener;
 
 @MessageDriven(
   activationConfig = {
-    @ActivationConfigProperty(propertyName = "destination", propertyValue = "the-queue")
+    @ActivationConfigProperty(propertyName = "destination", propertyValue = "lookup://openejb:Resource/FooQueue")
   }
 )
 public class JMSListener implements MessageListener {
