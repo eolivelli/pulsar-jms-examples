@@ -3,7 +3,7 @@
 This repository contains a simple example about how to create some simple applications
 that uses the JMS to Connect to Apache Pulsar.
 
-This example is using DataStax Fast JMS for Apache Pulsar JMS client
+This example is using DataStax Starlight for JMS client
 you can find it here
 
 https://github.com/datastax/pulsar-jms
@@ -25,7 +25,7 @@ Steps:
    ```
    mvn clean install
    ```
-2. Run the `download_tomee.sh" script to download Apache TomEE 8.0.6 and the Resource Adapter
+2. Run the `download_tomee.sh" script to download Apache TomEE 8.0.13 and the Resource Adapter
    ```
    ./download_tomee.sh
    ```
